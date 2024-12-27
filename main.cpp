@@ -5,32 +5,24 @@
 #include <string>
 #include <vector>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   Menu();
   std::vector<std::string> monitors;
   std::string brightness;
   int selectedMonitor = 0;
 
-  try
-  {
+  try {
     monitors = detectMonitors();
-    for (unsigned int i = 0; i < monitors.size(); i++)
-    {
+    for (unsigned int i = 0; i < monitors.size(); i++) {
       std::cout << (i + 1) << ". " << monitors[i] << std::endl;
     }
-  }
-  catch (const std::exception &e)
-  {
+  } catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
   }
 
-  try
-  {
+  try {
     brightness = getCurrentMonitorBrightness(monitors[0]);
-  }
-  catch (const std::exception &e)
-  {
+  } catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
   }
 
@@ -40,13 +32,10 @@ int main(int argc, char *argv[])
   std::cout << "Choose your monitor: ";
   std::cin >> selectedMonitor;
 
-  if (selectedMonitor == 0)
-  {
+  if (selectedMonitor == 0) {
     std::cout << "Exiting...\n";
     return 0;
-  }
-  else if (selectedMonitor > 0 && selectedMonitor <= monitors.size())
-  {
+  } else if (selectedMonitor > 0 && selectedMonitor <= monitors.size()) {
     int newBrightness;
     std::cout << "\nSelected monitor: " << monitors[selectedMonitor - 1]
               << std::endl;
@@ -55,9 +44,7 @@ int main(int argc, char *argv[])
     std::cout << "\nEnter new brightness (10-100): ";
     std::cin >> newBrightness;
     setBrightness(monitors[selectedMonitor - 1], newBrightness);
-  }
-  else
-  {
+  } else {
     std::cout << "Invalid selection\n";
   }
 

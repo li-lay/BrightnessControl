@@ -1,8 +1,7 @@
 #include "menu.h"
 #include <iostream>
 
-void Menu()
-{
+void Menu() {
   std::cout << "========================================\n";
   std::cout << "========== Brightness Control ==========\n";
   std::cout << "========================================\n";
