@@ -2,3 +2,4 @@ BrightnessControl
 main.o
 menu.o
 monitor.o
+.vscode
